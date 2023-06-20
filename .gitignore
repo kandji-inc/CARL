@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# macOS stuff
+.DS_Store
+
+# Vim stuff
+.swp
+
+# Runtime-specific results
+autopkg-runner-results
+autopkg_metadata.json
+running_vms.json

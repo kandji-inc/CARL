@@ -1,0 +1,16 @@
+[
+  "AdobeAcrobatProDC.pkg.recipe",
+  "AndroidStudio.pkg.recipe",
+  "BraveBrowser.pkg.recipe",
+  "Docker.pkg.recipe",
+  "GitHubDesktop.pkg.recipe",
+  "GoogleChrome.pkg.recipe",
+  "MicrosoftExcel.pkg.recipe",
+  "MicrosoftPowerPoint.pkg.recipe",
+  "MicrosoftRemoteDesktop.pkg.recipe",
+  "MicrosoftWord.pkg.recipe",
+  "PyCharmCE.pkg.recipe",
+  "TableauDesktop.pkg.recipe",
+  "VLC.pkg.recipe",
+  "Zoom.pkg.recipe"
+]

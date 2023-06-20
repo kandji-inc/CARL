@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Description</key>
+        <string>Downloads the latest version of Brave Browser, extracts it from a DMG, and creates a PKG.</string>
+        <key>Identifier</key>
+        <string>io.kandji.pkg.bravebrowser</string>
+        <key>Input</key>
+        <dict>
+            <key>NAME</key>
+            <string>Brave Browser</string>
+            <key>APP_NAME</key>
+            <string>%NAME%.app</string>
+            <key>DOWNLOAD_URL</key>
+            <string>https://referrals.brave.com/latest/Brave-Browser.dmg</string>
+            <key>CODE_SIGNATURE</key>
+            <string>identifier "com.brave.Browser" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = KL8N8XSYF4</string>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>1.0.0</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Processor</key>
+                <string>URLDownloader</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>url</key>
+                    <string>%DOWNLOAD_URL%</string>
+                    <key>filename</key>
+                    <string>%NAME%.dmg</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>StopProcessingIf</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>predicate</key>
+                    <string>download_changed == False</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>EndOfCheckPhase</string>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>CodeSignatureVerifier</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>input_path</key>
+                    <string>%pathname%/%APP_NAME%</string>
+                    <key>requirement</key>
+                    <string>%CODE_SIGNATURE%</string>
+                    <key>deep_verification</key>
+                    <true/>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>AppDmgVersioner</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>dmg_path</key>
+                    <string>%pathname%</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>AppPkgCreator</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>app_path</key>
+                    <string>%pathname%/%APP_NAME%</string>
+                    <key>bundleid</key>
+                    <string>%bundleid%</string>
+                    <key>version</key>
+                    <string>%version%</string>
+                    <key>pkg_path</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+                </dict>
+            </dict>
+        </array>
+    </dict>
+</plist>
