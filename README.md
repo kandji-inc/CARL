@@ -1,9 +1,9 @@
 # `C`acheless `A`utoPkg `R`unner `L`ocalized (`CARL`)
-  * #### [ABOUT](#about)
-  * #### [SETUP](#setup)
-  * #### [RUNTIME](#runtime)
-  * #### [RUNTIME COMPONENTS](#runtime-components)
-  * #### [CREDITS](#credits)
+  * #### [ABOUT](#about-1)
+  * #### [SETUP](#setup-1)
+  * #### [RUNTIME](#runtime-1)
+  * #### [RUNTIME COMPONENTS](#runtime-components-1)
+  * #### [CREDITS](#credits-1)
 
 ---
 ## ABOUT
