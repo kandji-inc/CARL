@@ -148,7 +148,7 @@ RECIPE_TO_RUN = os.environ.get("RECIPE", None)
 
 def _run_command(shell_cmd):
     """Function accepts argument of shell command as `shell_cmd`
-    Returns shell output formatted as list"""
+    Returns shell stderr + stdout and shell cmd exit code"""
     raw_out = run(shell_cmd, stdout=PIPE, stderr=STDOUT, shell=True, check=True)
     decoded_out = raw_out.stdout.decode().strip()
     exit_code = raw_out.returncode

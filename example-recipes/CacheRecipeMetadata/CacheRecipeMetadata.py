@@ -67,7 +67,6 @@ __all__ = ["CacheRecipeMetadata"]
 def _run_command(shell_cmd):
     """Function accepts argument of shell command as `shell_cmd`
     Returns shell stderr + stdout and shell cmd exit code"""
-    shell_cmd = shell_cmd.split()
     raw_out = run(shell_cmd, stdout=PIPE, stderr=STDOUT, shell=True, check=False)
     decoded_out = raw_out.stdout.decode().strip()
     exit_code = raw_out.returncode
